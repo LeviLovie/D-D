@@ -9,6 +9,7 @@ void Menu() {
 
     MoveCursorTo(0, 27);
     cout << "";
+    
     while (true) {
         ClearTerminal();
         cout << "1. New game;" << endl;
