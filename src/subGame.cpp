@@ -24,7 +24,7 @@ void WriteGameInfo(short startRoom, short countOfPlayers, Player players[16], st
         playerData = players[player];
         std::cout << "Player " << playerData.name << ": ";
         std::cout << "Health: " << playerData.health << ", ";
-        std::cout << "Type: " << playerTypes[playerData.type] << ", ";
+        std::cout << "Type: " << playerTypes[playerData.type - 1] << ", ";
         std::cout << "Inventory: " << playerData.inventory[0] << "; " << std::endl;
     }
     std::cout << "Save file: " << saveFile << std::endl;

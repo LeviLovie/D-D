@@ -8,16 +8,18 @@ set(SOURCES
     src/main.cpp
     src/terminal.cpp
     src/menu.cpp
-    src/Game.cpp
+    src/game.cpp
     src/newGameGetters.cpp
     src/subGame.cpp
+    src/saving.cpp
 )
 set(HEADERS
     src/terminal.h
     src/menu.h
-    src/Game.h
+    src/game.h
     src/newGameGetters.h
     src/subGame.h
+    src/saving.h
 )
 
 add_executable(DD ${SOURCES} ${HEADERS})

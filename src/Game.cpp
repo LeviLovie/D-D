@@ -5,6 +5,7 @@ using namespace std;
 #include "terminal.h"
 #include "newGameGetters.h"
 #include "subGame.h"
+#include "saving.h"
 
 short startRoom;
 short countOfPlayers;
@@ -36,5 +37,7 @@ short NewGame() {
     DrawInTerm("Press any key to exit:");
     cin >> StringTrash;
 
+    SavePreGame(saveFile, startRoom, countOfPlayers, players);
+    
     return 1;
 }

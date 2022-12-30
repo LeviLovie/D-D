@@ -102,25 +102,30 @@ Player getPlayer(short playerNumber) {
         }
     }
 
-    ClearTerminal();
-    MoveCursorTo(0, 0);
-    wrongString = "";
-    while (true) {
-        cout << "Press start health of player " << playerNumber + 1 << ":";
-        DrawInTerm(wrongString);
-        cin >> player.health;
+    bool readHealth = false;
+    if (readHealth) {
+        ClearTerminal();
+        MoveCursorTo(0, 0);
+        wrongString = "";
+        while (true) {
+            cout << "Press start health of player " << playerNumber + 1 << ":";
+            DrawInTerm(wrongString);
+            cin >> player.health;
 
-        if (player.health <= 0) {
-            wrongString = "Health can't be less or equal of 0! Try again.";
-            ClearTerminal();
-            MoveCursorTo(0, 0);
-        } else if (player.health > 127) {
-            wrongString = "Health can't be more of 127! Try again.";
-            ClearTerminal();
-            MoveCursorTo(0, 0);
-        } else {
-            break;
+            if (player.health <= 0) {
+                wrongString = "Health can't be less or equal of 0! Try again.";
+                ClearTerminal();
+                MoveCursorTo(0, 0);
+            } else if (player.health > 127) {
+                wrongString = "Health can't be more of 127! Try again.";
+                ClearTerminal();
+                MoveCursorTo(0, 0);
+            } else {
+                break;
+            }
         }
+    } else {
+        player.health = 127;
     }
 
     return player;

@@ -1,6 +1,6 @@
 #include "terminal.h"
 #include "menu.h"
-#include "Game.h"
+#include "game.h"
 
 int main(int, char**) {
     ClearRAM();

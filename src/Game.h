@@ -1,5 +1,5 @@
-#ifndef Game_h
-#define Game_h
+#ifndef game_h
+#define game_h
 
 short NewGame();
 
