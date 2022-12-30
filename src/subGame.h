@@ -18,4 +18,6 @@ class Player {
         );
 };
 
+void WriteGameInfo(short startRoom, short countOfPlayers, Player players[16], std::string saveFile);
+
 #endif

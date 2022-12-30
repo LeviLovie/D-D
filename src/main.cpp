@@ -2,10 +2,8 @@
 #include "menu.h"
 #include "Game.h"
 
-#include <iostream>
-using namespace std;
-
 int main(int, char**) {
+    ClearRAM();
     SetDefaultSizeOfTerminal();
     ClearTerminal();
     

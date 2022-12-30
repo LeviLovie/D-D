@@ -8,24 +8,8 @@ using namespace std;
 
 short startRoom;
 short countOfPlayers;
-std::string playerTypes[4] = {"Warrior", "Mage", "Archer", "Scientist"};
 Player players[16];
-
-void WriteGameInfo() {
-    ClearTerminal();
-    MoveCursorTo(0, 0);
-    cout << "Start room: " << startRoom << endl;
-    cout << "Count of players: " << countOfPlayers << endl;
-
-    Player playerData;
-    for (short player = 0; player < countOfPlayers; player++) {
-        playerData = players[player];
-        cout << "Player " << playerData.name << ": ";
-        cout << "Health: " << playerData.health << ", ";
-        cout << "Type: " << playerTypes[playerData.type] << ", ";
-        cout << "Inventory: " << playerData.inventory[0] << "; " << endl;
-    }
-}
+string saveFile;
 
 short NewGame() {
     ClearTerminal();
@@ -44,10 +28,13 @@ short NewGame() {
             players[player] = Player(0, 0, "", NULL);
         }
     }
+    saveFile = getSaveFileName();
 
     ClearTerminal();
-    WriteGameInfo();
+    WriteGameInfo(startRoom, countOfPlayers, players, saveFile);
+
     DrawInTerm("Press any key to exit:");
     cin >> StringTrash;
+
     return 1;
 }

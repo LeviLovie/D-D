@@ -40,3 +40,9 @@ void DrawInTerm(std::string str) {
     MoveCursorTo(0, 28);
     std::wcout << ">";
 }
+
+void ClearRAM() {
+    StringTrash = "";
+    IntTrash = 0;
+    system("sync");
+}

@@ -11,6 +11,7 @@ void Cout(std::string str);
 void CoutEndl(std::string str);
 void Null(std::string str);
 void DrawInTerm(std::string str);
+void ClearRAM();
 
 extern char FullRectCharBytes[];
 extern std::string StringTrash;
