@@ -3,15 +3,16 @@ using namespace std;
 
 #include "terminal.h"
 
-void Menu() {
+short Menu() {
     short chose = 0;
     bool wrong = false;
 
     MoveCursorTo(0, 27);
     cout << "";
-    
+
     while (true) {
         ClearTerminal();
+        cout << "Press type of menu mode" << endl;
         cout << "1. New game;" << endl;
         cout << "2. Load game;" << endl;
         cout << "3. Exit." << endl;
@@ -37,13 +38,5 @@ void Menu() {
         }
     }
 
-    if (chose == 1) {
-        // New game
-    } else if (chose == 2) {
-        // Load game
-    } else if (chose == 3) {
-        ClearTerminal();
-        cout << "Goodbye!" << endl;
-        Exit(0);
-    }
+    return chose;
 }
