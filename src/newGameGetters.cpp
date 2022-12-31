@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "terminal.h"
+#include "subGame.h"
 
 short getStartRoom() {
     short chose = 0;
@@ -85,16 +86,15 @@ Player getPlayer(short playerNumber) {
     wrongString = "";
     while (true) {
         cout << "Press type of player " << playerNumber + 1 << ":" << endl;
-        cout << "1. Warrior;" << endl;
-        cout << "2. Mage;" << endl;
-        cout << "3. Archer;" << endl;
-        cout << "4. Scientist." << endl;
+        for (short i = 0; i < PlayerTypes->length(); i++) {
+            cout << i + 1 << ". " << PlayerTypes[i] << ";" << endl;
+        }
 
         DrawInTerm(wrongString);
         cin >> player.type;
 
-        if (player.type != 1 && player.type != 2 && player.type != 3 && player.type != 4) {
-            wrongString = "Wrong type! Try again.";
+        if (player.type <= 0 || player.type > PlayerTypes->length()) {
+            wrongString = "Player type can't be less of 1 or more of " + to_string(PlayerTypes->length()) + "! Try again.";
             ClearTerminal();
             MoveCursorTo(0, 0);
         } else {
@@ -131,7 +131,6 @@ Player getPlayer(short playerNumber) {
     ClearTerminal();
     MoveCursorTo(0, 0);
     wrongString = "";
-    string playerTypes[4] = {"Warrior", "Mage", "Archer", "Scientist"};
 
     string warriorStuff[6] = {"Sword", "Shield", "Helmet", "Armor", "Boots", "Gold"};
     string mageStuff[5] = {"Bottle", "Robe", "Helmet", "Potion", "Scroll"};
@@ -142,22 +141,22 @@ Player getPlayer(short playerNumber) {
     while (true) {
         cout << "Press numbers of objects which will in " << player.name << " inventory" << ":" << endl;
         if (player.type == 1) {
-            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            cout << "Stuff for: " << PlayerTypes[player.type - 1] << endl;
             for (short i = 0; i < 6; i++) {
                 cout << i + 1 << ". " << warriorStuff[i] << ";" << endl;
             }
         } else if (player.type == 2) {
-            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            cout << "Stuff for: " << PlayerTypes[player.type - 1] << endl;
             for (short i = 0; i < 5; i++) {
                 cout << i + 1 << ". " << mageStuff[i] << ";" << endl;
             }
         } else if (player.type == 3) {
-            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            cout << "Stuff for: " << PlayerTypes[player.type - 1] << endl;
             for (short i = 0; i < 6; i++) {
                 cout << i + 1 << ". " << archerStuff[i] << ";" << endl;
             }
         } else if (player.type == 4) {
-            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            cout << "Stuff for: " << PlayerTypes[player.type - 1] << endl;
             for (short i = 0; i < 8; i++) {
                 cout << i + 1 << ". " << scientistStuff[i] << ";" << endl;
             }

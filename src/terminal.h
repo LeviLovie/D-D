@@ -5,6 +5,7 @@
 
 void ClearTerminal();
 void MoveCursorTo(short x, short y);
+void ClearTerminalAndMoveCursorTo(short x, short y);
 void SetDefaultSizeOfTerminalForSetup();
 void SetDefaultSizeOfTerminalForGame();
 void DrawInventoryline();

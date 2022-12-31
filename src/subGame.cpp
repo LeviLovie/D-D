@@ -5,6 +5,8 @@
 
 Player :: Player() {}
 
+std::string PlayerTypes[5] = {"Not playing", "Warrior", "Mage", "Archer", "Scientist"};
+
 Player :: Player(short health, short type, std::string name, std::string inventory[16]) {
     health = health;
     type = type;
@@ -40,4 +42,28 @@ void SeeSaves() {
         std::cout << "    " << line;
     }
     pclose(ls);
+}
+
+void createRoom(char room[25][120]) {
+    for (short i = 0; i < 25; i++) {
+        for (short j = 0; j < 120; j++) {
+            room[i][j] = ' ';
+        }
+    }
+    for (short i = 0; i < 25; i++) {
+        if (i > 3 && i < 21) {
+            room[i][3] = '|';
+            room[i][116] = '|';
+        }
+    }
+    for (short i = 0; i < 120; i++) {
+        if (i > 3 && i < 116) {
+            room[3][i] = '-';
+            room[21][i] = '-';
+        }
+    }
+    room[3][3] = '+';
+    room[3][116] = '+';
+    room[21][3] = '+';
+    room[21][116] = '+';
 }

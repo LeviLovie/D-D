@@ -15,6 +15,11 @@ void MoveCursorTo(short x, short y) {
     std::wcout << "\033[" << y << ";" << x << "H" << std::endl;
 }
 
+void ClearTerminalAndMoveCursorTo(short x, short y) {
+    ClearTerminal();
+    MoveCursorTo(x, y);
+}
+
 void SetDefaultSizeOfTerminalForSetup() {
     std::cout << "\033[8;28;120t";
 }

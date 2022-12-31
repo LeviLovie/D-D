@@ -13,6 +13,7 @@ set(SOURCES
     src/subGame.cpp
     src/saving.cpp
     src/game.cpp
+    src/commands.cpp
 )
 set(HEADERS
     src/terminal.h
@@ -22,6 +23,7 @@ set(HEADERS
     src/subGame.h
     src/saving.h
     src/game.h
+    src/commands.h
 )
 
 add_executable(DD ${SOURCES} ${HEADERS})
