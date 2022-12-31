@@ -1,4 +1,5 @@
 #include "iostream"
+#include <string>
 using namespace std;
 
 #include "terminal.h"
@@ -6,6 +7,7 @@ using namespace std;
 short Menu() {
     short chose = 0;
     bool wrong = false;
+    string wrongString = "";
 
     MoveCursorTo(0, 27);
     cout << "";
@@ -13,24 +15,15 @@ short Menu() {
     while (true) {
         ClearTerminal();
         cout << "Press type of menu mode" << endl;
-        cout << "1. New game;" << endl;
-        cout << "2. Load game;" << endl;
-        cout << "3. Exit." << endl;
+        cout << "1. New game setup;" << endl;
+        cout << "2. Load game sutep file and start game;" << endl;
+        cout << "3. Load last full game file; (Will work in next updates)" << endl;
+        cout << "4. Exit." << endl;
 
-        MoveCursorTo(0, 26);
-        for (short i = 0; i < 120; i++) {
-            cout.write(FullRectCharBytes, 3);
-        }
-        MoveCursorTo(0, 27);
-        if (wrong) {
-            cout << "Wrong chose! Try again.";
-            wrong = false;
-        }
-        MoveCursorTo(0, 28);
-        wcout << ">";
+        DrawInTerm(wrongString);
 
         cin >> chose;
-        if (chose != 1 && chose != 2 && chose != 3) {
+        if (chose != 1 && chose != 2 && chose != 3 && chose != 4) {
             wrong = true;
         } else {
             wrong = false;

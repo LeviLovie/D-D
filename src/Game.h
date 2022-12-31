@@ -1,6 +1,8 @@
 #ifndef game_h
 #define game_h
 
-short NewGame();
+#include <string>
+
+short Start(std::string savename);
 
 #endif

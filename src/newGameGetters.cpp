@@ -128,6 +128,93 @@ Player getPlayer(short playerNumber) {
         player.health = 127;
     }
 
+    ClearTerminal();
+    MoveCursorTo(0, 0);
+    wrongString = "";
+    string playerTypes[4] = {"Warrior", "Mage", "Archer", "Scientist"};
+
+    string warriorStuff[6] = {"Sword", "Shield", "Helmet", "Armor", "Boots", "Gold"};
+    string mageStuff[5] = {"Bottle", "Robe", "Helmet", "Potion", "Scroll"};
+    string archerStuff[6] = {"Bow", "Arrow", "Helmet", "Armor", "Boots", "Gold"};
+    string scientistStuff[8] = {"Potion", "Scroll", "Book", "Key", "Gold", "Bottle", "Robe", "Magnifying glass"};
+
+    string result = "";
+    while (true) {
+        cout << "Press numbers of objects which will in " << player.name << " inventory" << ":" << endl;
+        if (player.type == 1) {
+            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            for (short i = 0; i < 6; i++) {
+                cout << i + 1 << ". " << warriorStuff[i] << ";" << endl;
+            }
+        } else if (player.type == 2) {
+            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            for (short i = 0; i < 5; i++) {
+                cout << i + 1 << ". " << mageStuff[i] << ";" << endl;
+            }
+        } else if (player.type == 3) {
+            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            for (short i = 0; i < 6; i++) {
+                cout << i + 1 << ". " << archerStuff[i] << ";" << endl;
+            }
+        } else if (player.type == 4) {
+            cout << "Stuff for: " << playerTypes[player.type - 1] << endl;
+            for (short i = 0; i < 8; i++) {
+                cout << i + 1 << ". " << scientistStuff[i] << ";" << endl;
+            }
+        }
+
+        DrawInTerm(wrongString);
+        cin >> result;
+
+        for (short i = 0; i < result.length(); i++) {
+            if (player.type == 1) {
+                if (result[i] < '0' || result[i] > '6') {
+                    wrongString = "Number have have to be between 1 and 6. Try again.";
+                    ClearTerminal();
+                    MoveCursorTo(0, 0);
+                } else {
+                    player.inventory[i] = warriorStuff[i];
+                }
+            } else if (player.type == 2) {
+                if (result[i] < '0' || result[i] > '5') {
+                    wrongString = "Number have have to be between 1 and 5. Try again.";
+                    ClearTerminal();
+                    MoveCursorTo(0, 0);
+                } else {
+                    player.inventory[i] = mageStuff[i];
+                }
+            } else if (player.type == 3) {
+                if (result[i] < '0' || result[i] > '6') {
+                    wrongString = "Number have have to be between 1 and 6. Try again.";
+                    ClearTerminal();
+                    MoveCursorTo(0, 0);
+                } else {
+                    player.inventory[i] = archerStuff[i];
+                }
+            } else if (player.type == 4) {
+                if (result[i] < '0' || result[i] > '8') {
+                    wrongString = "Number have have to be between 1 and 8. Try again.";
+                    ClearTerminal();
+                    MoveCursorTo(0, 0);
+                } else {
+                    player.inventory[i] = scientistStuff[i];
+                }
+            }
+        }
+
+        if (player.health <= 0) {
+            wrongString = "Health can't be less or equal of 0! Try again.";
+            ClearTerminal();
+            MoveCursorTo(0, 0);
+        } else if (player.health > 127) {
+            wrongString = "Health can't be more of 127! Try again.";
+            ClearTerminal();
+            MoveCursorTo(0, 0);
+        } else {
+            break;
+        }
+    }
+
     return player;
 }
 

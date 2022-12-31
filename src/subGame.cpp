@@ -29,3 +29,15 @@ void WriteGameInfo(short startRoom, short countOfPlayers, Player players[16], st
     }
     std::cout << "Save file: " << saveFile << std::endl;
 }
+
+void SeeSaves() {
+    FILE* ls = popen("ls saves", "r");
+    if (!ls) {
+        std::cerr << "Error executing command" << std::endl;
+    }
+    char line[256];
+    while (fgets(line, sizeof(line), ls)) {
+        std::cout << "    " << line;
+    }
+    pclose(ls);
+}

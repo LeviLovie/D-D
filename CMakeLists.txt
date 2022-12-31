@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(DD VERSION 0.0.1)
+project(DD VERSION 0.0.2)
 
 include(CTest)
 enable_testing()
@@ -8,18 +8,20 @@ set(SOURCES
     src/main.cpp
     src/terminal.cpp
     src/menu.cpp
-    src/game.cpp
+    src/gameSetup.cpp
     src/newGameGetters.cpp
     src/subGame.cpp
     src/saving.cpp
+    src/game.cpp
 )
 set(HEADERS
     src/terminal.h
     src/menu.h
-    src/game.h
+    src/gameSetup.h
     src/newGameGetters.h
     src/subGame.h
     src/saving.h
+    src/game.h
 )
 
 add_executable(DD ${SOURCES} ${HEADERS})

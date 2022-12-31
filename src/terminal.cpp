@@ -8,14 +8,26 @@ int IntTrash;
 
 void ClearTerminal() {
     std::wcout << "\033c" << std::endl;
+    // std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 }
 
 void MoveCursorTo(short x, short y) {
     std::wcout << "\033[" << y << ";" << x << "H" << std::endl;
 }
 
-void SetDefaultSizeOfTerminal() {
+void SetDefaultSizeOfTerminalForSetup() {
     std::cout << "\033[8;28;120t";
+}
+
+void SetDefaultSizeOfTerminalForGame() {
+    std::cout << "\033[8;28;120";
+}
+
+void DrawInventoryline() {
+    for (short i = 0; i < 28; i++) {
+        MoveCursorTo(i, 120);
+        std::cout.write(FullRectCharBytes, 3);
+    }
 }
 
 void Exit(short code) {
