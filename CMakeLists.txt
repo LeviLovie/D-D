@@ -15,6 +15,7 @@ set(SOURCES
     src/game.cpp
     src/commands.cpp
 )
+
 set(HEADERS
     src/terminal.h
     src/menu.h
