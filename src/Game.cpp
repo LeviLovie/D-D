@@ -75,6 +75,5 @@ short Start(string savename) {
         DrawInTerm(outputMessage);
         cin >> input;
     }
-
     return 0;
 }
