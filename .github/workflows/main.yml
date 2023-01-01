@@ -1,0 +1,10 @@
+name: HelloWorld
+on: workflow_dispatch
+
+jobs:
+    HelloWorld:
+    runs-on: macos-latest
+    steps:
+        - name: Print Hello World to console
+        run: echo Hello, world!
+        
