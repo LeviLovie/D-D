@@ -23,7 +23,7 @@ set(HEADERS
     src/newGameGetters.h
     src/subGame.h
     src/saving.h
-    src/Game.h
+    src/game.h
     src/commands.h
 )
 
