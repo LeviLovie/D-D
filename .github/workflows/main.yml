@@ -1,10 +1,8 @@
-name: HelloWorld
+name: Hello World
 on: workflow_dispatch
-
 jobs:
-    HelloWorld:
-    runs-on: macos-latest
+  HelloWorld:
+    runs-on: ubuntu-latest
     steps:
-        - name: Print Hello World to console
-        run: echo Hello, world!
-        
+      - name: Print Hello World
+        run: echo "Hello Wrold"
