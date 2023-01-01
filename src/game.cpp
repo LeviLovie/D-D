@@ -10,7 +10,6 @@ using namespace std;
 #include "commands.h"
 
 char room[25][120];
-
 Player localPlayers[16];
 
 short Start(string savename) {
@@ -75,6 +74,6 @@ short Start(string savename) {
         DrawInTerm(outputMessage);
         cin >> input;
     }
-    
+
     return 0;
 }
